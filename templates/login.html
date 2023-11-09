@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #4CAF50; /* 녹색 배경 */
+            color: white; /* 텍스트 색상을 흰색으로 설정 */
+            font-family: Arial, sans-serif; /* 폰트 스타일 설정 */
+        }
+        form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #333; /* 폼 배경색을 어둡게 설정 */
+            border-radius: 8px;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: #FF0000; /* 에러 메시지를 빨간색으로 설정 */
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="{{ url_for('login') }}" method="post">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+    {% if msg %}
+    <p class="error">{{ msg }}</p>
+    {% endif %}
+</body>
+</html>
